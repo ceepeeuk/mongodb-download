@@ -426,9 +426,9 @@ export class MongoDBDownload {
   
   getArchiveName(): Promise<string> {
     return new Promise<string>((resolve, reject) => {
-      //var name = "mongodb-" + mongo_platform + "-" + mongo_arch;
-      let name = "mongodb-" + 
-      this.mongoDBPlatform.getPlatform() + "-" +
+      //var name = "mongodb-" + mongo_platform + "-ssl-" + mongo_arch;
+      let name = "mongodb-" +
+      this.mongoDBPlatform.getPlatform() + "-ssl-" +
       this.mongoDBPlatform.getArch();
       
       this.mongoDBPlatform.getOSVersionString().then(osString => {
@@ -437,6 +437,7 @@ export class MongoDBDownload {
         // nothing to add to name ... yet
       }).then(() => {
         name += `-${this.getVersion()}.${this.mongoDBPlatform.getArchiveType()}`;
+        console.log(name);
         resolve(name);
       });
     });  
