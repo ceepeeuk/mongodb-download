@@ -399,7 +399,6 @@ var MongoDBDownload = /** @class */ (function () {
                 // nothing to add to name ... yet
             }).then(function () {
                 name += "-" + _this.getVersion() + "." + _this.mongoDBPlatform.getArchiveType();
-                console.log(name);
                 resolve(name);
             });
         });

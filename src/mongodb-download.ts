@@ -437,7 +437,6 @@ export class MongoDBDownload {
         // nothing to add to name ... yet
       }).then(() => {
         name += `-${this.getVersion()}.${this.mongoDBPlatform.getArchiveType()}`;
-        console.log(name);
         resolve(name);
       });
     });  
