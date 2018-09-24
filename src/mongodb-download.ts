@@ -427,11 +427,10 @@ export class MongoDBDownload {
   getArchiveName(): Promise<string> {
     return new Promise<string>((resolve, reject) => {
       //var name = "mongodb-" + mongo_platform + "-ssl-" + mongo_arch;
-      let name = "mongodb-" +
-      this.mongoDBPlatform.getPlatform() +
-      this.mongoDBPlatform.getPlatform() === "osx" ?
+        let name = "mongodb-" +
+      this.mongoDBPlatform.getPlatform() + (this.mongoDBPlatform.getPlatform() === "osx" ?
           "-ssl-":
-          "-" +
+          "-") +
       this.mongoDBPlatform.getArch();
 
       this.mongoDBPlatform.getOSVersionString().then(osString => {
